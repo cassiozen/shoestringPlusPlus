@@ -17,13 +17,43 @@ p {
 header {
   padding: 10px;
   background-color: #f93b51;
-  color: #fff; }
+  color: #fff;
+  height: 3.5em;
+  display: block;
+  position: fixed;
+  width: 100vw; }
+
+.pull-left {
+  float: left; }
+
+.pull-right {
+  float: right; }
 
 #logo-header {
   float: left;
-  height: 50px;
-  margin: 0 10px 5px 10px; }
+  height: 3.5em;
+  margin-right: 10px; }
 
 #title-head {
-  font-size: 2em;
-  margin-bottom: 5px; }
+  float: right;
+  display: inline-block;
+  height: 3.5em;
+  top: 0px;
+  position: absolute; }
+
+.nav-item {
+  float: left;
+  height: 2em;
+  margin-top: calc(1.5em - 10px);
+  margin-right: 1.5em; }
+  .nav-item a {
+    font-size: 1.5em;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    padding: 5px; }
+  .nav-item :hover {
+    color: #FC3A51;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: #d3d3d3; }
