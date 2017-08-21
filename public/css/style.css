@@ -64,10 +64,20 @@ header {
 #carousel {
   margin: 0;
   width: 100vw; }
-
-#carousel-image {
-  display: block;
-  width: 100%; }
+  #carousel #carousel-text {
+    display: inline-block;
+    position: absolute;
+    top: 100px;
+    left: calc(50vw - 7.5em);
+    width: 15em;
+    font-size: 5em;
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px #f93b51;
+    z-index: 1; }
+  #carousel #carousel-image {
+    display: block;
+    width: 100%; }
 
 #features {
   margin: 3.5em 1em 0 1em;
