@@ -1,5 +1,4 @@
-$(() => {
-  // Carousel
+// Carousel
   const images = [
     "images/VR1.jpg",
     "images/VR2.jpg",
@@ -49,11 +48,22 @@ $(() => {
     $($selectedEl).removeClass('em-scream_cat')
   }
 
+$(() => {
+  
   $('i').hover(changeToCat, changeFromCat)
 
   setInterval(() => {
     updateImg();
     updateText();
   }, 5000);
+
+  //Parallaxing
+
+  $(window).scroll(function() {
+    let pos = 2 * $(window).scrollTop();
+    let theText = $('#carousel-text');
+    theText.css('left', pos + 'px')    
+  });
+
 
 });

@@ -14,6 +14,12 @@ h5,
 p {
   font-family: 'Josefin Sans', 'Verdana', sans-serif; }
 
+.container {
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto; }
+
 header {
   padding: 10px;
   margin: 0 4em 0 4em;
@@ -72,11 +78,10 @@ header {
   #carousel #carousel-text {
     display: inline-block;
     position: absolute;
-    top: 100px;
-    left: calc(50vw - 7.5em);
+    top: 500px;
+    margin-left: 0;
     width: 15em;
-    font-size: 5em;
-    text-align: center;
+    font-size: 4em;
     color: #fff;
     text-shadow: 2px 2px #f93b51;
     z-index: 1; }
@@ -111,17 +116,9 @@ header {
 .footer {
   width: 100vw;
   height: 6em;
-  position: absolute;
   border-radius: 1em 1em 0 0;
   background-color: #f93b51;
   color: #fff; }
-  .footer #logo-footer {
-    float: left;
-    height: 3em;
-    margin: 1.5em; }
-  .footer h4 {
-    height: 1em;
-    margin-top: 2.5em; }
 
 @media screen and (min-width: 800px) {
   .col-sm-1 {
