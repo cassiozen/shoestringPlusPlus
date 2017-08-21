@@ -41,3 +41,4 @@ To Try: Paralax animation
 ## References:
 
 - http://templates.crtvmax.com/?id=3
+- http://www.lamag.com/culturefiles/virtual-reality-stock-photos-are-unintentionally-comic-genius/
