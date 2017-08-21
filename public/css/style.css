@@ -16,12 +16,15 @@ p {
 
 header {
   padding: 10px;
+  margin: 0 4em 0 4em;
   background-color: #f93b51;
   color: #fff;
   height: 3.5em;
+  width: calc(100vw - 8em);
+  border-radius: 0 0 1em 1em;
   display: block;
   position: fixed;
-  width: 100vw; }
+  z-index: 1; }
 
 .pull-left {
   float: left; }
@@ -59,9 +62,15 @@ header {
     box-shadow: #d3d3d3; }
 
 #carousel {
-  width: 100vw;
-  height: 100%; }
+  margin: 0;
+  width: 100vw; }
 
 #carousel-image {
   display: block;
   width: 100%; }
+
+#features {
+  margin: 3.5em 1em 0 1em;
+  width: calc(100vw - 2em);
+  height: 250px;
+  background-color: yellow; }

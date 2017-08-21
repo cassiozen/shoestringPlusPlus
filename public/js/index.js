@@ -1,6 +1,4 @@
 $(() => {
-  console.log("helloooo");
-
   // Carousel
   const images = [
     "images/VR1.jpg",
@@ -17,7 +15,7 @@ $(() => {
     $image = $("#carousel-image");
     $image.fadeOut(el => {
       $image.attr("src", images[currentImageIndex]);
-      $image.fadeIn();
     });
+    $image.fadeIn();
   }, 5000);
 });
