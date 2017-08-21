@@ -1,0 +1,33 @@
+$primary-color: #f93b51;
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+a {
+  font-family: 'Lobster', 'Comic Sans', cursive;
+}
+
+h3,
+h4,
+h5,
+p {
+  font-family: 'Josefin Sans', 'Verdana', sans-serif;
+}
+
+#logo-header {
+  float: left;
+  height: 50px;
+  margin: 0 10px 5px 10px;
+}
+
+#title-head {
+  font-size: 2em;
+  margin-bottom: 5px;
+  background-color: $primary-color;
+  color: #fff;
+}
