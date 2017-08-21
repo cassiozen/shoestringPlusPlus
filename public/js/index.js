@@ -39,6 +39,18 @@ $(() => {
     $txt.fadeIn();
   }
 
+  const changeToCat = (e) => {
+    let $selectedEl = e.target;
+    $($selectedEl).addClass('em-scream_cat')
+  }
+
+  const changeFromCat = (e) => {
+    let $selectedEl = e.target;
+    $($selectedEl).removeClass('em-scream_cat')
+  }
+
+  $('i').hover(changeToCat, changeFromCat)
+
   setInterval(() => {
     updateImg();
     updateText();

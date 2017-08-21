@@ -31,7 +31,7 @@ header {
   border-radius: 0 0 1em 1em;
   display: block;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
 }
 
 .pull-left {
@@ -40,6 +40,14 @@ header {
 
 .pull-right {
   float: right;
+}
+
+.row {
+  &::before, &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
 }
 
 #logo-header {
@@ -102,9 +110,62 @@ header {
   }
 }
 
-#features {
-  margin: 3.5em 1em 0 1em;
-  width: calc(100vw - 2em);
-  height: 250px;
-  background-color: yellow;
+#staff {
+  width: 100vw;
+  height: 850px;
+  color: $primary-color;
+
+  h2 {
+    font-size: 4em;
+    text-align: center;
+  }
+
+  .staff-profile {
+    &:hover {
+      color: #fff;
+      background-color: $primary-color;
+    }
+
+    .headshot {
+      height: 5em;
+      width: 5em;
+      margin-left: calc(50% - 2.5em);
+      padding-top: 10px;
+    }
+
+    .staff-name {
+      text-align: center;
+      font-size: 2em;
+    }
+
+    .staff-bio {
+      width: calc(100% - 5em);
+      margin-left: 2.5em;
+      text-align: center;
+      font-style: italic;
+    }
+
+  }
+}
+
+@mixin make-cols ($type) {
+  @for $i from 1 through 12 {
+    .col-#{$type}-#{$i} {
+      float: left;
+      width: $i * 100%/12;
+      padding: 0;
+    }
+  }
+}
+
+$type-sizes: (
+  sm: 800px,
+  md: 1000px,
+  lg: 1200px
+);
+
+@each $type, $size in $type-sizes {
+  @media screen and (min-width: $size) {
+    @include make-cols($type);
+  }
 }
