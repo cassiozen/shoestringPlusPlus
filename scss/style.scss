@@ -19,6 +19,12 @@ p {
   font-family: 'Josefin Sans', 'Verdana', sans-serif;
 }
 
+header {
+  padding: 10px;
+  background-color: $primary-color;
+  color: #fff;
+}
+
 #logo-header {
   float: left;
   height: 50px;
@@ -28,6 +34,4 @@ p {
 #title-head {
   font-size: 2em;
   margin-bottom: 5px;
-  background-color: $primary-color;
-  color: #fff;
 }
