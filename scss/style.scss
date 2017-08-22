@@ -1,5 +1,5 @@
 $primary-color: #f93b51;
-$nav-selected: #FC3A51;
+$nav-selected: #fc3a51;
 $shadow: #d3d3d3;
 
 body {
@@ -49,7 +49,8 @@ header {
 }
 
 .row {
-  &::before, &::after {
+  &::before,
+  &::after {
     content: '';
     display: block;
     clear: both;
@@ -90,19 +91,17 @@ header {
     background-color: #fff;
     box-shadow: $shadow;
   }
-
 }
 
 #carousel {
   margin: 0;
   width: 100vw;
 
-
   #carousel-text {
     display: inline-block;
     position: absolute;
-    top: 500px;
-    margin-left: 0;
+    top: 340px;
+    margin-left: 30px;
     width: 15em;
     font-size: 4em;
     color: #fff;
@@ -150,14 +149,13 @@ header {
       text-align: center;
       font-style: italic;
     }
-
   }
 }
 
 .footer {
   width: 100vw;
   height: 6em;
-  border-radius:1em 1em 0 0;
+  border-radius: 1em 1em 0 0;
   background-color: $primary-color;
   color: #fff;
 }
@@ -172,11 +170,7 @@ header {
   }
 }
 
-$type-sizes: (
-  sm: 800px,
-  md: 1000px,
-  lg: 1200px
-);
+$type-sizes: (sm: 800px, md: 1000px, lg: 1200px);
 
 @each $type, $size in $type-sizes {
   @media screen and (min-width: $size) {
