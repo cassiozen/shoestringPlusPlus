@@ -1,33 +1,27 @@
 // Carousel
 const images = ["images/VR1.jpg", "images/VR2.jpg", "images/VR3.jpg"];
 
-const phrases = [
-  "A Revolutionary New Product",
-  "Making The World A Better Place",
-  "A Disruptive New Platform"
-];
+const phrases = ["A Revolutionary New Product", "Making The World A Better Place", "A Disruptive New Platform"];
 
 let currentImageIndex = 0;
 let currentPhraseIndex = 0;
+$carousel = $("#carousel");
 
 const updateImg = () => {
   currentImageIndex++;
   if (currentImageIndex === images.length) currentImageIndex = 0;
-  $image = $("#carousel-image");
-  $image.fadeOut(el => {
-    $image.attr("src", images[currentImageIndex]);
-  });
-  $image.fadeIn();
-};
 
-const updateText = () => {
   currentPhraseIndex++;
   if (currentPhraseIndex === phrases.length) currentPhraseIndex = 0;
+
+  $image = $("#carousel-image");
   $txt = $("#carousel-text");
-  $txt.fadeOut(el => {
+
+  $carousel.fadeOut(el => {
+    $image.attr("src", images[currentImageIndex]);
     $txt.text(phrases[currentPhraseIndex]);
   });
-  $txt.fadeIn();
+  $carousel.fadeIn();
 };
 
 const changeToCat = e => {
@@ -45,14 +39,14 @@ $(() => {
 
   setInterval(() => {
     updateImg();
-    updateText();
   }, 5000);
 
   //Parallaxing
 
   $(window).scroll(function() {
-    let pos = 2 * $(window).scrollTop();
-    let theText = $("#carousel-text");
-    theText.css("left", pos + "px");
+    const pos = $(window).scrollTop();
+
+    $("#carousel-text").css("opacity", 1 - pos / 500);
+    $("#carousel-image").css("margin-top", pos / 2 + "px");
   });
 });
