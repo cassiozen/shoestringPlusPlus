@@ -1,7 +1,9 @@
 // Carousel
-let currentImageIndex = 3;
+let currentImageIndex = 0;
 $carousel = $("#carousel");
 $images = $(".carousel-image");
+$images.slice(1).hide();
+
 const updateImg = () => {
   let $img = $($images.get(currentImageIndex));
   $img.fadeOut(1000);
@@ -27,10 +29,9 @@ function setActiveSection(pos) {
 }
 
 $(() => {
-  updateImg();
   setInterval(() => {
     updateImg();
-  }, 5000);
+  }, 2500);
 
   setActiveSection($(window).scrollTop());
   //Parallaxing
