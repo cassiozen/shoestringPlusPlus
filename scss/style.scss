@@ -96,12 +96,12 @@ section {
 
   #carousel-text {
     position: absolute;
-    top: 55vh;
+    top: 80vh;
     opacity: 0;
     color: #fff;
     text-shadow: 2px 2px $primary-color;
     z-index: 1;
-    transition: all 1.5s ease-out;
+    transition: all 1.5s ease-in-out;
   }
   &.active #carousel-text {
     top: 50vh;
@@ -110,7 +110,7 @@ section {
 
   .carousel-image {
     position: absolute;
-    display: block;
+    display: none;
     margin: auto;
     min-width: 100%;
     height: 100%;

@@ -1,8 +1,7 @@
 // Carousel
-let currentImageIndex = 0;
+let currentImageIndex = 3;
 $carousel = $("#carousel");
 $images = $(".carousel-image");
-$images.slice(1).hide();
 const updateImg = () => {
   let $img = $($images.get(currentImageIndex));
   $img.fadeOut(1000);
@@ -12,16 +11,6 @@ const updateImg = () => {
 
   $img = $($images.get(currentImageIndex));
   $img.fadeIn(1000);
-};
-
-const changeToCat = e => {
-  let $selectedEl = e.target;
-  $($selectedEl).addClass("em-scream_cat");
-};
-
-const changeFromCat = e => {
-  let $selectedEl = e.target;
-  $($selectedEl).removeClass("em-scream_cat");
 };
 
 const sectionActiveMargin = 400;
@@ -38,8 +27,7 @@ function setActiveSection(pos) {
 }
 
 $(() => {
-  $("i").hover(changeToCat, changeFromCat);
-
+  updateImg();
   setInterval(() => {
     updateImg();
   }, 5000);
