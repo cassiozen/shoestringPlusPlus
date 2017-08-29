@@ -24,7 +24,7 @@ const changeFromCat = e => {
   $($selectedEl).removeClass("em-scream_cat");
 };
 
-const sectionActiveMargin = 250;
+const sectionActiveMargin = 400;
 function setActiveSection(pos) {
   $("section").each((idx, section) => {
     const $section = $(section);
@@ -46,10 +46,11 @@ $(() => {
 
   setActiveSection($(window).scrollTop());
   //Parallaxing
+  let pos;
 
   $(window).scroll(function() {
-    const pos = $(window).scrollTop();
-
+    pos = $(window).scrollTop();
+    $(".carousel-image").css("top", pos / 3 + "px");
     if (pos > 220) {
       $("header").slideDown();
     } else {
@@ -57,9 +58,5 @@ $(() => {
     }
 
     setActiveSection(pos);
-
-    // $("#aboutmockup").css("margin-right", pos - $("#about").offset().top);
-    $("#carousel-text").css("opacity", 1 - pos / 300);
-    $(".carousel-image").css("top", pos / 3 + "px");
   });
 });

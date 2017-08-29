@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: $primary-color;
+  line-height: 1.5em;
+}
+
+h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+h2 {
+  font-size: 2em;
+  margin: 0;
+  font-weight: normal;
+  sub {
+    padding: 5px;
+    color: $highlight-color;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+a {
+  font-family: 'Saira Extra Condensed', sans-serif;
+}

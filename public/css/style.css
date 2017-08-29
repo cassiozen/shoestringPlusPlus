@@ -27,60 +27,49 @@ h5,
 a {
   font-family: 'Saira Extra Condensed', sans-serif; }
 
-.container {
-  padding-right: 0px;
-  padding-left: 0px;
-  margin-right: auto;
-  margin-left: auto; }
-
-#fake-header {
+#start-logo {
   position: absolute;
-  display: block;
   top: 200px;
-  left: 0;
   width: 100%;
   text-align: center;
   z-index: 2; }
-  #fake-header img {
+  #start-logo img {
     height: 3em; }
+
+.flex {
+  display: flex; }
+
+@media screen and (max-width: 600px) {
+  .flex {
+    flex-flow: column wrap;
+    align-items: center;
+    padding: 0 15px; } }
 
 header {
   display: none;
-  padding: 10px;
-  margin: 0 4em 0 4em;
-  background-color: rgba(37, 37, 37, 0.8);
-  color: #fff;
-  height: 3em;
-  width: calc(100vw - 8em);
-  border-radius: 0 0 1em 1em;
   position: fixed;
+  margin: 0 4em;
+  padding: 10px;
+  width: calc(100vw - 8em);
+  color: #fff;
+  background-color: rgba(37, 37, 37, 0.8);
+  border-radius: 0 0 1em 1em;
   z-index: 2; }
-
-.pull-left {
-  float: left; }
-
-.pull-right {
-  float: right; }
-
-.row::before, .row::after {
-  content: '';
-  display: block;
-  clear: both; }
-
-#logo-header {
-  height: 2.5em;
-  padding-top: .2em; }
+  header .logo {
+    flex-grow: 1;
+    padding-top: .2em; }
+    header .logo img {
+      height: 2.5em; }
+  header nav {
+    display: flex; }
 
 .nav-item {
-  float: left;
   height: 1.5em;
-  margin-top: calc(1.5em - 10px);
-  margin-right: 1.5em; }
+  margin: 0.5em 1.5em 0 0; }
   .nav-item a {
     font-size: 1.3em;
     color: #fff;
-    height: 100%;
-    width: 100%;
+    text-decoration: none;
     padding: 5px; }
   .nav-item :hover {
     color: #202b47;
@@ -89,6 +78,9 @@ header {
     box-shadow: #d3d3d3; }
 
 section {
+  box-sizing: border-box;
+  position: relative;
+  width: 100vw;
   overflow: hidden; }
   section h2 {
     text-align: center;
@@ -105,15 +97,11 @@ section {
       margin-left: -30px; }
 
 #carousel {
-  margin: 0;
   height: 100vh;
-  width: 100vw;
-  position: relative;
-  overflow: hidden; }
+  display: flex;
+  justify-content: center; }
   #carousel #carousel-text {
     position: absolute;
-    width: 100%;
-    text-align: center;
     top: 55vh;
     opacity: 0;
     color: #fff;
@@ -126,30 +114,45 @@ section {
   #carousel .carousel-image {
     position: absolute;
     display: block;
+    margin: auto;
     min-width: 100%;
     height: 100%; }
 
 #about {
   background-color: #f1f1f1;
-  height: 80vh;
   padding: 20px 20px 0 20px; }
+  #about p {
+    flex: 3; }
   #about #aboutmockup {
+    flex: 2;
+    align-self: flex-end;
     transform: translateX(500px);
     opacity: 0;
-    transition: all 1.5s ease-out; }
+    transition: all 1s ease-in-out; }
   #about.active #aboutmockup {
     transform: translateX(0px);
     opacity: 1; }
   #about img {
+    display: block;
     width: 100%;
     height: auto; }
 
 #staff {
-  width: 100vw;
-  height: 850px;
+  height: 100%;
   color: #252525; }
+  #staff .wrap {
+    display: flex;
+    flex-wrap: wrap; }
   #staff .staff-profile {
-    transition: all 0.3s; }
+    flex: 0 0 100%; }
+  @media (min-width: 600px) {
+    #staff .staff-profile {
+      flex: 0 0 50%; } }
+  @media (min-width: 960px) {
+    #staff .staff-profile {
+      flex: 0 0 33%; } }
+  #staff .staff-profile {
+    transition: background-color 0.3s; }
     #staff .staff-profile:hover {
       color: #fff;
       background-color: #f39c12; }
@@ -170,156 +173,5 @@ section {
 .footer {
   width: 100vw;
   height: 6em;
-  border-radius: 1em 1em 0 0;
   background-color: #252525;
   color: #fff; }
-
-@media screen and (min-width: 800px) {
-  .col-sm-1 {
-    float: left;
-    width: 8.33333%;
-    padding: 0; }
-  .col-sm-2 {
-    float: left;
-    width: 16.66667%;
-    padding: 0; }
-  .col-sm-3 {
-    float: left;
-    width: 25%;
-    padding: 0; }
-  .col-sm-4 {
-    float: left;
-    width: 33.33333%;
-    padding: 0; }
-  .col-sm-5 {
-    float: left;
-    width: 41.66667%;
-    padding: 0; }
-  .col-sm-6 {
-    float: left;
-    width: 50%;
-    padding: 0; }
-  .col-sm-7 {
-    float: left;
-    width: 58.33333%;
-    padding: 0; }
-  .col-sm-8 {
-    float: left;
-    width: 66.66667%;
-    padding: 0; }
-  .col-sm-9 {
-    float: left;
-    width: 75%;
-    padding: 0; }
-  .col-sm-10 {
-    float: left;
-    width: 83.33333%;
-    padding: 0; }
-  .col-sm-11 {
-    float: left;
-    width: 91.66667%;
-    padding: 0; }
-  .col-sm-12 {
-    float: left;
-    width: 100%;
-    padding: 0; } }
-
-@media screen and (min-width: 1000px) {
-  .col-md-1 {
-    float: left;
-    width: 8.33333%;
-    padding: 0; }
-  .col-md-2 {
-    float: left;
-    width: 16.66667%;
-    padding: 0; }
-  .col-md-3 {
-    float: left;
-    width: 25%;
-    padding: 0; }
-  .col-md-4 {
-    float: left;
-    width: 33.33333%;
-    padding: 0; }
-  .col-md-5 {
-    float: left;
-    width: 41.66667%;
-    padding: 0; }
-  .col-md-6 {
-    float: left;
-    width: 50%;
-    padding: 0; }
-  .col-md-7 {
-    float: left;
-    width: 58.33333%;
-    padding: 0; }
-  .col-md-8 {
-    float: left;
-    width: 66.66667%;
-    padding: 0; }
-  .col-md-9 {
-    float: left;
-    width: 75%;
-    padding: 0; }
-  .col-md-10 {
-    float: left;
-    width: 83.33333%;
-    padding: 0; }
-  .col-md-11 {
-    float: left;
-    width: 91.66667%;
-    padding: 0; }
-  .col-md-12 {
-    float: left;
-    width: 100%;
-    padding: 0; } }
-
-@media screen and (min-width: 1200px) {
-  .col-lg-1 {
-    float: left;
-    width: 8.33333%;
-    padding: 0; }
-  .col-lg-2 {
-    float: left;
-    width: 16.66667%;
-    padding: 0; }
-  .col-lg-3 {
-    float: left;
-    width: 25%;
-    padding: 0; }
-  .col-lg-4 {
-    float: left;
-    width: 33.33333%;
-    padding: 0; }
-  .col-lg-5 {
-    float: left;
-    width: 41.66667%;
-    padding: 0; }
-  .col-lg-6 {
-    float: left;
-    width: 50%;
-    padding: 0; }
-  .col-lg-7 {
-    float: left;
-    width: 58.33333%;
-    padding: 0; }
-  .col-lg-8 {
-    float: left;
-    width: 66.66667%;
-    padding: 0; }
-  .col-lg-9 {
-    float: left;
-    width: 75%;
-    padding: 0; }
-  .col-lg-10 {
-    float: left;
-    width: 83.33333%;
-    padding: 0; }
-  .col-lg-11 {
-    float: left;
-    width: 91.66667%;
-    padding: 0; }
-  .col-lg-12 {
-    float: left;
-    width: 100%;
-    padding: 0; } }

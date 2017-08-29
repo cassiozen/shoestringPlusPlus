@@ -4,7 +4,7 @@
   "description": "## Need Statement",
   "main": "index.js",
   "scripts": {
-    "build": "node-sass -w 'scss/style.scss' -o 'public/css'",
+    "build": "node-sass -w scss/style.scss -o public/css",
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
