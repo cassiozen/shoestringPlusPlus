@@ -1,27 +1,17 @@
 // Carousel
-const images = ["images/VR1.jpg", "images/VR2.jpg", "images/VR3.jpg"];
-
-const phrases = ["A Revolutionary New Product", "Making The World A Better Place", "A Disruptive New Platform"];
-
 let currentImageIndex = 0;
-let currentPhraseIndex = 0;
 $carousel = $("#carousel");
-
+$images = $(".carousel-image");
+$images.slice(1).hide();
 const updateImg = () => {
+  let $img = $($images.get(currentImageIndex));
+  $img.fadeOut(1000);
+
   currentImageIndex++;
-  if (currentImageIndex === images.length) currentImageIndex = 0;
+  if (currentImageIndex === $images.length) currentImageIndex = 0;
 
-  currentPhraseIndex++;
-  if (currentPhraseIndex === phrases.length) currentPhraseIndex = 0;
-
-  $image = $("#carousel-image");
-  $txt = $("#carousel-text");
-
-  $carousel.fadeOut(el => {
-    $image.attr("src", images[currentImageIndex]);
-    $txt.text(phrases[currentPhraseIndex]);
-  });
-  $carousel.fadeIn();
+  $img = $($images.get(currentImageIndex));
+  $img.fadeIn(1000);
 };
 
 const changeToCat = e => {
@@ -34,6 +24,19 @@ const changeFromCat = e => {
   $($selectedEl).removeClass("em-scream_cat");
 };
 
+const sectionActiveMargin = 250;
+function setActiveSection(pos) {
+  $("section").each((idx, section) => {
+    const $section = $(section);
+    if (pos > $section.offset().top - sectionActiveMargin && pos < $section.offset().top + $section.height()) {
+      $section.addClass("active");
+    } else {
+      $section.removeClass("active");
+    }
+    return true;
+  });
+}
+
 $(() => {
   $("i").hover(changeToCat, changeFromCat);
 
@@ -41,12 +44,22 @@ $(() => {
     updateImg();
   }, 5000);
 
+  setActiveSection($(window).scrollTop());
   //Parallaxing
 
   $(window).scroll(function() {
     const pos = $(window).scrollTop();
 
-    $("#carousel-text").css("opacity", 1 - pos / 500);
-    $("#carousel-image").css("margin-top", pos / 2 + "px");
+    if (pos > 220) {
+      $("header").slideDown();
+    } else {
+      $("header").slideUp();
+    }
+
+    setActiveSection(pos);
+
+    // $("#aboutmockup").css("margin-right", pos - $("#about").offset().top);
+    $("#carousel-text").css("opacity", 1 - pos / 300);
+    $(".carousel-image").css("top", pos / 3 + "px");
   });
 });

@@ -2,17 +2,30 @@ body {
   margin: 0;
   padding: 0; }
 
+p {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #252525;
+  line-height: 1.5em; }
+
+h1 {
+  font-size: 3em;
+  margin: 0; }
+
+h2 {
+  font-size: 2em;
+  margin: 0;
+  font-weight: normal; }
+  h2 sub {
+    padding: 5px;
+    color: #f39c12; }
+
 h1,
 h2,
 h3,
-a {
-  font-family: 'Lobster', 'Comic Sans', cursive; }
-
-h3,
 h4,
 h5,
-p {
-  font-family: 'Josefin Sans', 'Verdana', sans-serif; }
+a {
+  font-family: 'Saira Extra Condensed', sans-serif; }
 
 .container {
   padding-right: 0px;
@@ -20,15 +33,26 @@ p {
   margin-right: auto;
   margin-left: auto; }
 
+#fake-header {
+  position: absolute;
+  display: block;
+  top: 200px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 2; }
+  #fake-header img {
+    height: 3em; }
+
 header {
+  display: none;
   padding: 10px;
   margin: 0 4em 0 4em;
-  background-color: #f93b51;
+  background-color: rgba(37, 37, 37, 0.8);
   color: #fff;
-  height: 3.5em;
+  height: 3em;
   width: calc(100vw - 8em);
   border-radius: 0 0 1em 1em;
-  display: block;
   position: fixed;
   z-index: 2; }
 
@@ -44,84 +68,110 @@ header {
   clear: both; }
 
 #logo-header {
-  float: left;
-  height: 3.5em;
-  margin-right: 10px; }
-
-#title-head {
-  float: right;
-  display: inline-block;
-  height: 3.5em;
-  top: 0px;
-  position: absolute; }
+  height: 2.5em;
+  padding-top: .2em; }
 
 .nav-item {
   float: left;
-  height: 2em;
+  height: 1.5em;
   margin-top: calc(1.5em - 10px);
   margin-right: 1.5em; }
   .nav-item a {
-    font-size: 1.5em;
+    font-size: 1.3em;
     color: #fff;
     height: 100%;
     width: 100%;
     padding: 5px; }
   .nav-item :hover {
-    color: #fc3a51;
+    color: #202b47;
     border-radius: 5px;
     background-color: #fff;
     box-shadow: #d3d3d3; }
 
+section {
+  overflow: hidden; }
+  section h2 {
+    text-align: center;
+    position: relative;
+    margin: 60px 0; }
+    section h2:after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      width: 60px;
+      height: 1px;
+      background-color: #f39c12;
+      left: 50%;
+      margin-left: -30px; }
+
 #carousel {
   margin: 0;
+  height: 100vh;
   width: 100vw;
-  min-height: 480px;
-  height: 80vh;
+  position: relative;
   overflow: hidden; }
   #carousel #carousel-text {
-    display: inline-block;
     position: absolute;
-    bottom: 3em;
-    margin-left: 1em;
-    width: 15em;
-    font-size: 4em;
+    width: 100%;
+    text-align: center;
+    top: 55vh;
+    opacity: 0;
     color: #fff;
-    text-shadow: 2px 2px #f93b51;
-    z-index: 1; }
-  #carousel #carousel-image {
+    text-shadow: 2px 2px #252525;
+    z-index: 1;
+    transition: all 1.5s ease-out; }
+  #carousel.active #carousel-text {
+    top: 50vh;
+    opacity: 1; }
+  #carousel .carousel-image {
+    position: absolute;
     display: block;
     min-width: 100%;
     height: 100%; }
 
+#about {
+  background-color: #f1f1f1;
+  height: 80vh;
+  padding: 20px 20px 0 20px; }
+  #about #aboutmockup {
+    transform: translateX(500px);
+    opacity: 0;
+    transition: all 1.5s ease-out; }
+  #about.active #aboutmockup {
+    transform: translateX(0px);
+    opacity: 1; }
+  #about img {
+    width: 100%;
+    height: auto; }
+
 #staff {
   width: 100vw;
   height: 850px;
-  color: #f93b51; }
-  #staff h2 {
-    font-size: 4em;
-    text-align: center; }
-  #staff .staff-profile:hover {
-    color: #fff;
-    background-color: #f93b51; }
-  #staff .staff-profile .headshot {
-    height: 5em;
-    width: 5em;
-    margin-left: calc(50% - 2.5em);
-    padding-top: 10px; }
-  #staff .staff-profile .staff-name {
-    text-align: center;
-    font-size: 2em; }
-  #staff .staff-profile .staff-bio {
-    width: calc(100% - 5em);
-    margin-left: 2.5em;
-    text-align: center;
-    font-style: italic; }
+  color: #252525; }
+  #staff .staff-profile {
+    transition: all 0.3s; }
+    #staff .staff-profile:hover {
+      color: #fff;
+      background-color: #f39c12; }
+    #staff .staff-profile .headshot {
+      height: 5em;
+      width: 5em;
+      margin-left: calc(50% - 2.5em);
+      padding-top: 10px; }
+    #staff .staff-profile .staff-name {
+      text-align: center;
+      font-size: 2em; }
+    #staff .staff-profile .staff-bio {
+      width: calc(100% - 5em);
+      margin-left: 2.5em;
+      text-align: center;
+      font-style: italic; }
 
 .footer {
   width: 100vw;
   height: 6em;
   border-radius: 1em 1em 0 0;
-  background-color: #f93b51;
+  background-color: #252525;
   color: #fff; }
 
 @media screen and (min-width: 800px) {
