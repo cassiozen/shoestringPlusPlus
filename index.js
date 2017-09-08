@@ -1,14 +1,46 @@
-let express = require("express");
-let path = require("path");
+// Carousel
+let currentImageIndex = 0;
 
-let app = express();
+const carouselImages = document.querySelectorAll(".carousel-image");
 
-app.use(express.static(__dirname + "/public"));
+const updateImg = () => {
+  let img = carouselImages[currentImageIndex];
+  img.classList.add("hidden");
+  currentImageIndex++;
+  if (currentImageIndex === carouselImages.length) currentImageIndex = 0;
+  img = carouselImages[currentImageIndex];
+  img.classList.remove("hidden");
+};
 
-app.get("/", function(req, res, next) {
-  res.sendFile(path.join(__dirname + "/index.html"));
-});
+setInterval(() => {
+  updateImg();
+}, 5000);
 
-app.listen(8080, function() {
-  console.log("~~~~ Server listening on 8080 ~~~~");
-});
+//Parallaxing
+
+const headerActivationMargin = 65;
+const sectionActivationMargin = 300;
+
+const setActiveContent = () => {
+  if (window.scrollY > headerActivationMargin) {
+    $("header").removeClass("hidden");
+  } else {
+    $("header").addClass("hidden");
+  }
+
+  carouselImages.forEach(image => {
+    image.style.top = `${window.scrollY / 3}px`;
+  });
+
+  document.querySelectorAll("section").forEach(section => {
+    const sectionBounds = section.getBoundingClientRect();
+    if (sectionBounds.top < window.innerHeight - sectionActivationMargin && sectionBounds.bottom > 0) {
+      section.classList.add("active");
+    } else {
+      section.classList.remove("active");
+    }
+  });
+};
+
+window.addEventListener("scroll", setActiveContent);
+setActiveContent();
